@@ -14,6 +14,17 @@
 		CB28A3B22C2D472400F7D1FC /* MatchingPairsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3B12C2D472400F7D1FC /* MatchingPairsTests.swift */; };
 		CB28A3BC2C2D472400F7D1FC /* MatchingPairsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3BB2C2D472400F7D1FC /* MatchingPairsUITests.swift */; };
 		CB28A3BE2C2D472400F7D1FC /* MatchingPairsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3BD2C2D472400F7D1FC /* MatchingPairsUITestsLaunchTests.swift */; };
+		CB28A3EE2C2DEEE000F7D1FC /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3ED2C2DEEE000F7D1FC /* GameLogic.swift */; };
+		CB28A3F12C2DF1A900F7D1FC /* libMatchingCard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB28A3F02C2DF1A900F7D1FC /* libMatchingCard.a */; };
+		CB28A3F32C2DF33F00F7D1FC /* MatchingPairsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3F22C2DF33F00F7D1FC /* MatchingPairsView.swift */; };
+		CB28A3F52C2E99EE00F7D1FC /* ThemeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3F42C2E99EE00F7D1FC /* ThemeSelectionViewModel.swift */; };
+		CB28A3F82C2E9ACB00F7D1FC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3F72C2E9ACB00F7D1FC /* NetworkManager.swift */; };
+		CB28A3FB2C2E9CA600F7D1FC /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3FA2C2E9CA600F7D1FC /* ThemeModel.swift */; };
+		CB28A4012C2EB26200F7D1FC /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A4002C2EB26200F7D1FC /* ThemeSelectionView.swift */; };
+		CB28A4032C2EB55500F7D1FC /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A4022C2EB55500F7D1FC /* ErrorMessage.swift */; };
+		CB28A4052C2EBDE900F7D1FC /* MatchingPairsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A4042C2EBDE800F7D1FC /* MatchingPairsViewModel.swift */; };
+		CB28A40A2C2EFB4D00F7D1FC /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A4092C2EFB4D00F7D1FC /* TimerView.swift */; };
+		CB28A40C2C2F0A7D00F7D1FC /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A40B2C2F0A7D00F7D1FC /* TimerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +55,17 @@
 		CB28A3B72C2D472400F7D1FC /* MatchingPairsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatchingPairsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB28A3BB2C2D472400F7D1FC /* MatchingPairsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairsUITests.swift; sourceTree = "<group>"; };
 		CB28A3BD2C2D472400F7D1FC /* MatchingPairsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CB28A3ED2C2DEEE000F7D1FC /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
+		CB28A3F02C2DF1A900F7D1FC /* libMatchingCard.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMatchingCard.a; path = "../../../Library/Developer/Xcode/DerivedData/MatchingCard-cchuswheravdlkahjdiktexcjfrh/Build/Products/Debug-iphonesimulator/libMatchingCard.a"; sourceTree = "<group>"; };
+		CB28A3F22C2DF33F00F7D1FC /* MatchingPairsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairsView.swift; sourceTree = "<group>"; };
+		CB28A3F42C2E99EE00F7D1FC /* ThemeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewModel.swift; sourceTree = "<group>"; };
+		CB28A3F72C2E9ACB00F7D1FC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CB28A3FA2C2E9CA600F7D1FC /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
+		CB28A4002C2EB26200F7D1FC /* ThemeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
+		CB28A4022C2EB55500F7D1FC /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		CB28A4042C2EBDE800F7D1FC /* MatchingPairsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairsViewModel.swift; sourceTree = "<group>"; };
+		CB28A4092C2EFB4D00F7D1FC /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		CB28A40B2C2F0A7D00F7D1FC /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB28A3F12C2DF1A900F7D1FC /* libMatchingCard.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +101,7 @@
 				CB28A3B02C2D472400F7D1FC /* MatchingPairsTests */,
 				CB28A3BA2C2D472400F7D1FC /* MatchingPairsUITests */,
 				CB28A39E2C2D471C00F7D1FC /* Products */,
+				CB28A3E32C2DE6A300F7D1FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,10 +118,16 @@
 		CB28A39F2C2D471C00F7D1FC /* MatchingPairs */ = {
 			isa = PBXGroup;
 			children = (
+				CB28A4082C2EFB3D00F7D1FC /* Timer */,
+				CB28A3FF2C2EB24600F7D1FC /* ThemeSelection */,
+				CB28A3FE2C2EAA7D00F7D1FC /* Model */,
+				CB28A3F92C2E9BD800F7D1FC /* Game */,
+				CB28A3F62C2E9A4100F7D1FC /* Network */,
 				CB28A3A02C2D471C00F7D1FC /* MatchingPairsApp.swift */,
 				CB28A3A22C2D471C00F7D1FC /* ContentView.swift */,
 				CB28A3A42C2D472000F7D1FC /* Assets.xcassets */,
 				CB28A3A62C2D472000F7D1FC /* Preview Content */,
+				CB28A3ED2C2DEEE000F7D1FC /* GameLogic.swift */,
 			);
 			path = MatchingPairs;
 			sourceTree = "<group>";
@@ -125,6 +155,58 @@
 				CB28A3BD2C2D472400F7D1FC /* MatchingPairsUITestsLaunchTests.swift */,
 			);
 			path = MatchingPairsUITests;
+			sourceTree = "<group>";
+		};
+		CB28A3E32C2DE6A300F7D1FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB28A3F02C2DF1A900F7D1FC /* libMatchingCard.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB28A3F62C2E9A4100F7D1FC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CB28A3F72C2E9ACB00F7D1FC /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CB28A3F92C2E9BD800F7D1FC /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				CB28A3F22C2DF33F00F7D1FC /* MatchingPairsView.swift */,
+				CB28A4042C2EBDE800F7D1FC /* MatchingPairsViewModel.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		CB28A3FE2C2EAA7D00F7D1FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB28A3FA2C2E9CA600F7D1FC /* ThemeModel.swift */,
+				CB28A4022C2EB55500F7D1FC /* ErrorMessage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB28A3FF2C2EB24600F7D1FC /* ThemeSelection */ = {
+			isa = PBXGroup;
+			children = (
+				CB28A4002C2EB26200F7D1FC /* ThemeSelectionView.swift */,
+				CB28A3F42C2E99EE00F7D1FC /* ThemeSelectionViewModel.swift */,
+			);
+			path = ThemeSelection;
+			sourceTree = "<group>";
+		};
+		CB28A4082C2EFB3D00F7D1FC /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				CB28A4092C2EFB4D00F7D1FC /* TimerView.swift */,
+				CB28A40B2C2F0A7D00F7D1FC /* TimerViewModel.swift */,
+			);
+			path = Timer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +339,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB28A3FB2C2E9CA600F7D1FC /* ThemeModel.swift in Sources */,
 				CB28A3A32C2D471C00F7D1FC /* ContentView.swift in Sources */,
+				CB28A3EE2C2DEEE000F7D1FC /* GameLogic.swift in Sources */,
+				CB28A3F52C2E99EE00F7D1FC /* ThemeSelectionViewModel.swift in Sources */,
+				CB28A40C2C2F0A7D00F7D1FC /* TimerViewModel.swift in Sources */,
+				CB28A4032C2EB55500F7D1FC /* ErrorMessage.swift in Sources */,
+				CB28A3F82C2E9ACB00F7D1FC /* NetworkManager.swift in Sources */,
+				CB28A40A2C2EFB4D00F7D1FC /* TimerView.swift in Sources */,
 				CB28A3A12C2D471C00F7D1FC /* MatchingPairsApp.swift in Sources */,
+				CB28A4052C2EBDE900F7D1FC /* MatchingPairsViewModel.swift in Sources */,
+				CB28A3F32C2DF33F00F7D1FC /* MatchingPairsView.swift in Sources */,
+				CB28A4012C2EB26200F7D1FC /* ThemeSelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,14 +522,17 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "/Users/elenadianamorosanu/Library/Developer/Xcode/DerivedData/MatchingCard-cchuswheravdlkahjdiktexcjfrh/Build/Products/Debug-iphonesimulator";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Diana.Morosanu.MatchingPairs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "/Users/elenadianamorosanu/Library/Developer/Xcode/DerivedData/MatchingCard-cchuswheravdlkahjdiktexcjfrh/Build/Products/Debug-iphonesimulator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -459,14 +554,17 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "/Users/elenadianamorosanu/Library/Developer/Xcode/DerivedData/MatchingCard-cchuswheravdlkahjdiktexcjfrh/Build/Products/Debug-iphonesimulator";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Diana.Morosanu.MatchingPairs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "/Users/elenadianamorosanu/Library/Developer/Xcode/DerivedData/MatchingCard-cchuswheravdlkahjdiktexcjfrh/Build/Products/Debug-iphonesimulator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
