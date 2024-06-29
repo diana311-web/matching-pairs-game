@@ -15,7 +15,7 @@ struct TimerView: View {
                Text("\(viewModel.secondsCountdown)")
                    .font(.system(size: 20, weight: .bold, design: .monospaced))
                    .foregroundColor(.black)
-                   .padding()
+                   .padding(.all, 10)
                    .background(
                        Circle()
                            .fill(Color.white)

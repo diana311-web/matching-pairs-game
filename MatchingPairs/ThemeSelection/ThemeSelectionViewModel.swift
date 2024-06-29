@@ -8,6 +8,11 @@
 import Foundation
 import Combine
 
+private struct Constants
+{
+    static let noOfRetries = 3
+}
+
 class ThemeSelectionViewModel: ObservableObject {
     enum ScreenState {
         case loading
@@ -26,6 +31,7 @@ class ThemeSelectionViewModel: ObservableObject {
     
     func fetchData() {
         URLNetworkManager.shared.fetchData(from: urlString)
+            .retry(Constants.noOfRetries)
             .sink { [weak self] completion in
                 guard let self = self else { return }
                 self.state = .loaded

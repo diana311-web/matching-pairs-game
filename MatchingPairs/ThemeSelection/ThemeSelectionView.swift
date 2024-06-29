@@ -18,6 +18,11 @@ struct ThemeSelectionView: View {
                 ProgressView()
             case .loaded:
                 NavigationView {
+//                    NavigationLink(destination: GameRankingView()) {
+//                        HStack {
+//                            Text("GameRanking")
+//                        }
+//                    }
                     List(viewModel.themes) { theme in
                         Button(action: {
                             viewModel.selectedTheme = theme
@@ -47,7 +52,7 @@ struct ThemeSelectionView: View {
         ), content: { error in
             Alert(title: Text("Ups.."),
                   message: Text(viewModel.errorState?.message ?? ""),
-                  dismissButton: .default(Text("A intervenit o eroare"), action: {
+                  dismissButton: .default(Text("Ok"), action: {
             }))
         })
         .onAppear {

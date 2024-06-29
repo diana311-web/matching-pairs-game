@@ -8,69 +8,97 @@
 import SwiftUI
 import MatchingCard
 
+private struct Constants
+{
+    static let spacing = 10.0
+    static let minWidth = 60.0
+    static let minHeight = 70.0
+    static let noOfRowsPortrait = 3
+    static let noOfRowsLandscape = 2
+}
+
 public struct MatchingPairsView: View {
     private var buttonTitle: String {
-        return startGame ? "Reset" : ""
+        return startGame ? "Reset" : "Start"
     }
     @State private var startGame: Bool = false
     @ObservedObject var viewModel: MatchingPairsViewModel
     @ObservedObject var timerViewModel = TimerViewModel.shared
     
+    var showAlert: Bool {
+        return timerViewModel.showAlert || viewModel.hasWonTheGame
+    }
+
+    var showAlertBinding: Binding<Bool> {
+        Binding<Bool>(
+            get: { self.showAlert },
+            set: { _ in }
+        )
+    }
+
+    var alertType: AlertType? {
+        return
+            timerViewModel.showAlert ? .timerElapsed :
+            viewModel.hasWonTheGame ? .gameWon : 
+            nil
+    }
+    
     public var body: some View {
         VStack {
             Text(viewModel.themeModel.title)
                 .font(.title)
-                .padding()
+                .padding(.top, 10)
             Text("Score: \(viewModel.score)")
-                .padding()
+                .padding(.top, 2)
                 .font(.title2)
             TimerView()
                 .hidden(!startGame)
        
             VStack {
                     GeometryReader { geometry in
-                        LazyVGrid(columns: gridColumns(for: geometry.size), spacing: 3) {
+                        let isPortrait = geometry.size.height > geometry.size.width
+                        let rows = isPortrait ? Constants.noOfRowsPortrait : Constants.noOfRowsLandscape
+                        let columns = calculateColumns(for: viewModel.cardsView.count, rows: rows)
+                        
+                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Constants.spacing), count: columns), spacing: Constants.spacing) {
                             ForEach(Array(viewModel.cardsView.enumerated()), id: \.0)  { index, card in
                                 card
-                                    .frame(width: cardWidth(for: geometry.size), height: cardHeight(for: geometry.size))
-                                    .padding()
+                                    .frame(width: cardWidth(for: geometry.size, columns: columns, minWidth: Constants.minWidth),
+                                           height: cardHeight(for: geometry.size, rows: rows, minHeight: Constants.minHeight))
+                                    .padding(5)
                                     .id(card.id)
-    //                                .simultaneousGesture(
-    //                                           TapGesture()
-    //                                               .onEnded { _ in
-    //                                                   viewModel.chooseCard(card)
-    //                                                   //print("VStack tapped")
-    //                                               }
-    //                                       )
                                     .hidden(viewModel.matchedCards[card] ?? false)
                             }
-    //                        ForEach(Array(theme.symbols.enumerated()), id: \.0)  { index, symbol in
-    //                            CardView(symbol: symbol, backSymbol: theme.cardSymbol, backgroundColor: Color(theme.cardColor))
-    //                                 .frame(width: cardWidth(for: geometry.size), height: cardHeight(for: geometry.size))
-    //                                 .padding()
-    //                                 .onTapGesture {
-    //                                     print(self)
-    //                                 }
-    //                         }
-                         }
+                        }
+                        .frame(width: geometry.size.width, height: geometry.size.height)
                     }
-                
-            }.disabled(!startGame || viewModel.blockScreen)
+            }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+            .disabled(!startGame || viewModel.blockScreen)
             buttonView
-                .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
                 
         }.onAppear {
             viewModel.initGame()
-        }.alert(isPresented: $timerViewModel.showAlert, content: {
-            Alert(title: Text("Time's expired"),
-                  message: Text("Game over"),
-                  dismissButton: .default(Text("OK"), action: {
-                startGame.toggle()
-                viewModel.initGame()
-            }))
+        }
+        .alert(isPresented: showAlertBinding, content: {
+            switch alertType {
+            case .timerElapsed:
+                return Alert(title: Text("Time's expired"),
+                             message: Text("Game over"),
+                             dismissButton: .default(Text("OK"), action: {
+                           startNewGame(hasWon: false)
+                       }))
+            case .gameWon:
+                timerViewModel.stopTimer()
+                return Alert(title: Text("You won 🎉🎉"),
+                      message: Text("You have won the game"),
+                      dismissButton: .default(Text("OK"), action: {
+                    startNewGame(hasWon: true)
+                }))
+            case nil:
+                return Alert(title: Text(""))
+            }
         })
     }
-    
     
     var buttonView: some View {
         return Button(action: {
@@ -83,34 +111,35 @@ public struct MatchingPairsView: View {
         }) {
             Text(buttonTitle)
         }
-        .frame(width: 120, height: 40)  //to do: add geometry reader
+        .frame(width: 120, height: 40)
         .foregroundColor(.white)
         .background(.gray)
         .cornerRadius(8.0)
-        .padding()
+        .padding(EdgeInsets(top: 30, leading: 20, bottom: -10, trailing: 20))
     }
     
-    private func gridColumns(for size: CGSize) -> [GridItem] {
-        let columnCount = size.width > size.height ? 4 : 3
-        return Array(repeating: GridItem(.flexible()), count: columnCount)
+    func startNewGame(hasWon: Bool) {
+        viewModel.saveGameState(hasWon: hasWon)
+        startGame.toggle()
+        viewModel.initGame()
     }
 
-    // Function to determine card width based on screen width and number of columns
-    private func cardWidth(for size: CGSize) -> CGFloat {
-        let columnCount = size.width > size.height ? 4 : 3
-        let spacing: CGFloat = 10
-        let totalSpacing = spacing * CGFloat(columnCount - 1)
+    func calculateColumns(for count: Int, rows: Int) -> Int {
+        return Int((CGFloat(count) / CGFloat(rows)).rounded(.up))
+    }
+    
+    func cardWidth(for size: CGSize, columns: Int, minWidth: CGFloat) -> CGFloat {
+        let totalSpacing = CGFloat(columns - 1) * Constants.spacing + CGFloat(columns) * Constants.spacing
         let availableWidth = size.width - totalSpacing
-        return availableWidth / CGFloat(columnCount)
+        let calculatedWidth = availableWidth / CGFloat(columns)
+        return max(calculatedWidth, minWidth)
     }
-
-    // Function to determine card height based on card width and aspect ratio
-    private func cardHeight(for size: CGSize) -> CGFloat {
-        let rowCount = size.width > size.height ? 2 : 3
-        let spacing: CGFloat = 10
-        let totalSpacing = spacing * CGFloat(rowCount - 1)
+    
+    func cardHeight(for size: CGSize, rows: Int, minHeight: CGFloat) -> CGFloat {
+        let totalSpacing = CGFloat(rows - 1) * Constants.spacing + CGFloat(rows) * Constants.spacing
         let availableHeight = size.height - totalSpacing
-        return availableHeight / CGFloat(rowCount)
+        let calculatedHeight = availableHeight / CGFloat(rows)
+        return max(calculatedHeight, minHeight)
     }
 }
 
@@ -127,5 +156,5 @@ extension View {
 }
 
 #Preview {
-    MatchingPairsView(viewModel: MatchingPairsViewModel(themeModel: ThemeModel(cardColor: CardColor(blue: 0.01, green: 0.549, red: 0.9686), cardSymbol: "⬛️", symbols: ["🎃", "👻", "👿", "💀"], title: "Halloween")))
+    MatchingPairsView(viewModel: MatchingPairsViewModel(themeModel: ThemeModel(cardColor: CardColor(blue: 0.01, green: 0.549, red: 0.9686), cardSymbol: "⬛️", symbols: ["🎃", "👻", "👿", "💀", "🎃", "👻", "👿", "💀", "🎃", "👻", "👿", "💀"], title: "Halloween")))
 }
