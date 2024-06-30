@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		CB0E8F072C30275D00BFC010 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E8F062C30275D00BFC010 /* GameState.swift */; };
-		CB0E8F092C3027CE00BFC010 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E8F082C3027CE00BFC010 /* StorageService.swift */; };
+		CB0E8F092C3027CE00BFC010 /* StorageGameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E8F082C3027CE00BFC010 /* StorageGameService.swift */; };
 		CB0E8F0C2C303C6100BFC010 /* GameRankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E8F0B2C303C6100BFC010 /* GameRankingView.swift */; };
+		CB0E8F0E2C31535A00BFC010 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E8F0D2C31535A00BFC010 /* CardView.swift */; };
+		CB0E8F142C318F1900BFC010 /* StartSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E8F132C318F1900BFC010 /* StartSelectionView.swift */; };
+		CB0E8F1A2C3193C800BFC010 /* ThemeSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E8F192C3193C800BFC010 /* ThemeSwitcherView.swift */; };
+		CB0E8F1C2C319A3000BFC010 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E8F1B2C319A3000BFC010 /* ThemeManager.swift */; };
 		CB28A3A12C2D471C00F7D1FC /* MatchingPairsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3A02C2D471C00F7D1FC /* MatchingPairsApp.swift */; };
-		CB28A3A32C2D471C00F7D1FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3A22C2D471C00F7D1FC /* ContentView.swift */; };
 		CB28A3A52C2D472000F7D1FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB28A3A42C2D472000F7D1FC /* Assets.xcassets */; };
 		CB28A3A82C2D472000F7D1FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB28A3A72C2D472000F7D1FC /* Preview Assets.xcassets */; };
 		CB28A3B22C2D472400F7D1FC /* MatchingPairsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3B12C2D472400F7D1FC /* MatchingPairsTests.swift */; };
@@ -20,7 +23,6 @@
 		CB28A3F12C2DF1A900F7D1FC /* libMatchingCard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB28A3F02C2DF1A900F7D1FC /* libMatchingCard.a */; };
 		CB28A3F32C2DF33F00F7D1FC /* MatchingPairsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3F22C2DF33F00F7D1FC /* MatchingPairsView.swift */; };
 		CB28A3F52C2E99EE00F7D1FC /* ThemeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3F42C2E99EE00F7D1FC /* ThemeSelectionViewModel.swift */; };
-		CB28A3F82C2E9ACB00F7D1FC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3F72C2E9ACB00F7D1FC /* NetworkManager.swift */; };
 		CB28A3FB2C2E9CA600F7D1FC /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A3FA2C2E9CA600F7D1FC /* ThemeModel.swift */; };
 		CB28A4012C2EB26200F7D1FC /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A4002C2EB26200F7D1FC /* ThemeSelectionView.swift */; };
 		CB28A4032C2EB55500F7D1FC /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28A4022C2EB55500F7D1FC /* ErrorMessage.swift */; };
@@ -48,11 +50,14 @@
 
 /* Begin PBXFileReference section */
 		CB0E8F062C30275D00BFC010 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
-		CB0E8F082C3027CE00BFC010 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		CB0E8F082C3027CE00BFC010 /* StorageGameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageGameService.swift; sourceTree = "<group>"; };
 		CB0E8F0B2C303C6100BFC010 /* GameRankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRankingView.swift; sourceTree = "<group>"; };
+		CB0E8F0D2C31535A00BFC010 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		CB0E8F132C318F1900BFC010 /* StartSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSelectionView.swift; sourceTree = "<group>"; };
+		CB0E8F192C3193C800BFC010 /* ThemeSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitcherView.swift; sourceTree = "<group>"; };
+		CB0E8F1B2C319A3000BFC010 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		CB28A39D2C2D471C00F7D1FC /* MatchingPairs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchingPairs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB28A3A02C2D471C00F7D1FC /* MatchingPairsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairsApp.swift; sourceTree = "<group>"; };
-		CB28A3A22C2D471C00F7D1FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CB28A3A42C2D472000F7D1FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB28A3A72C2D472000F7D1FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB28A3AD2C2D472400F7D1FC /* MatchingPairsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatchingPairsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +68,6 @@
 		CB28A3F02C2DF1A900F7D1FC /* libMatchingCard.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMatchingCard.a; path = "../../../Library/Developer/Xcode/DerivedData/MatchingCard-cchuswheravdlkahjdiktexcjfrh/Build/Products/Debug-iphonesimulator/libMatchingCard.a"; sourceTree = "<group>"; };
 		CB28A3F22C2DF33F00F7D1FC /* MatchingPairsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairsView.swift; sourceTree = "<group>"; };
 		CB28A3F42C2E99EE00F7D1FC /* ThemeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewModel.swift; sourceTree = "<group>"; };
-		CB28A3F72C2E9ACB00F7D1FC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CB28A3FA2C2E9CA600F7D1FC /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
 		CB28A4002C2EB26200F7D1FC /* ThemeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
 		CB28A4022C2EB55500F7D1FC /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
@@ -106,6 +110,15 @@
 			path = GameRanking;
 			sourceTree = "<group>";
 		};
+		CB0E8F152C3192BD00BFC010 /* StartSelection */ = {
+			isa = PBXGroup;
+			children = (
+				CB0E8F132C318F1900BFC010 /* StartSelectionView.swift */,
+				CB0E8F192C3193C800BFC010 /* ThemeSwitcherView.swift */,
+			);
+			path = StartSelection;
+			sourceTree = "<group>";
+		};
 		CB28A3942C2D471C00F7D1FC = {
 			isa = PBXGroup;
 			children = (
@@ -130,17 +143,17 @@
 		CB28A39F2C2D471C00F7D1FC /* MatchingPairs */ = {
 			isa = PBXGroup;
 			children = (
+				CB0E8F152C3192BD00BFC010 /* StartSelection */,
 				CB0E8F0A2C303C4D00BFC010 /* GameRanking */,
 				CB28A4082C2EFB3D00F7D1FC /* Timer */,
 				CB28A3FF2C2EB24600F7D1FC /* ThemeSelection */,
 				CB28A3FE2C2EAA7D00F7D1FC /* Model */,
 				CB28A3F92C2E9BD800F7D1FC /* Game */,
-				CB28A3F62C2E9A4100F7D1FC /* Network */,
 				CB28A3A02C2D471C00F7D1FC /* MatchingPairsApp.swift */,
-				CB28A3A22C2D471C00F7D1FC /* ContentView.swift */,
 				CB28A3A42C2D472000F7D1FC /* Assets.xcassets */,
 				CB28A3A62C2D472000F7D1FC /* Preview Content */,
-				CB0E8F082C3027CE00BFC010 /* StorageService.swift */,
+				CB0E8F082C3027CE00BFC010 /* StorageGameService.swift */,
+				CB0E8F1B2C319A3000BFC010 /* ThemeManager.swift */,
 			);
 			path = MatchingPairs;
 			sourceTree = "<group>";
@@ -178,14 +191,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CB28A3F62C2E9A4100F7D1FC /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				CB28A3F72C2E9ACB00F7D1FC /* NetworkManager.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		CB28A3F92C2E9BD800F7D1FC /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +206,7 @@
 				CB28A3FA2C2E9CA600F7D1FC /* ThemeModel.swift */,
 				CB28A4022C2EB55500F7D1FC /* ErrorMessage.swift */,
 				CB0E8F062C30275D00BFC010 /* GameState.swift */,
+				CB0E8F0D2C31535A00BFC010 /* CardView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,14 +360,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB28A3FB2C2E9CA600F7D1FC /* ThemeModel.swift in Sources */,
-				CB28A3A32C2D471C00F7D1FC /* ContentView.swift in Sources */,
 				CB28A3F52C2E99EE00F7D1FC /* ThemeSelectionViewModel.swift in Sources */,
 				CB28A40C2C2F0A7D00F7D1FC /* TimerViewModel.swift in Sources */,
+				CB0E8F0E2C31535A00BFC010 /* CardView.swift in Sources */,
 				CB28A4032C2EB55500F7D1FC /* ErrorMessage.swift in Sources */,
-				CB28A3F82C2E9ACB00F7D1FC /* NetworkManager.swift in Sources */,
+				CB0E8F142C318F1900BFC010 /* StartSelectionView.swift in Sources */,
 				CB28A40A2C2EFB4D00F7D1FC /* TimerView.swift in Sources */,
 				CB0E8F0C2C303C6100BFC010 /* GameRankingView.swift in Sources */,
-				CB0E8F092C3027CE00BFC010 /* StorageService.swift in Sources */,
+				CB0E8F1A2C3193C800BFC010 /* ThemeSwitcherView.swift in Sources */,
+				CB0E8F1C2C319A3000BFC010 /* ThemeManager.swift in Sources */,
+				CB0E8F092C3027CE00BFC010 /* StorageGameService.swift in Sources */,
 				CB28A3A12C2D471C00F7D1FC /* MatchingPairsApp.swift in Sources */,
 				CB28A4052C2EBDE900F7D1FC /* MatchingPairsViewModel.swift in Sources */,
 				CB0E8F072C30275D00BFC010 /* GameState.swift in Sources */,

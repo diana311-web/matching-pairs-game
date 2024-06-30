@@ -7,26 +7,21 @@
 
 import Foundation
 
-private struct Constants
-{
-    static let countdown = 30
-}
-
 class TimerViewModel: ObservableObject {
     private var timer: Timer?
-    // TODO: Make them private
+
     @Published var secondsCountdown: Int = 0
     @Published var showAlert: Bool = false
     static let shared = TimerViewModel()
     
     private init() { }
     
-    func startTimer() {
+    func startTimer(countdown: Int) {
         showAlert = false
-        secondsCountdown = Constants.countdown
+        secondsCountdown = countdown
 
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [self] _ in
-            if self.secondsCountdown > 0 {
+            if secondsCountdown > 0 {
                 secondsCountdown -= 1
             } else {
                 showAlert = true
@@ -38,9 +33,5 @@ class TimerViewModel: ObservableObject {
     func stopTimer() {
         timer?.invalidate()
         timer = nil
-    }
-    
-    func getElapsedSeconds() -> Int {
-        return Constants.countdown - secondsCountdown
     }
 }

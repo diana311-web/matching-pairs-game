@@ -27,7 +27,15 @@ class MatchingPairsViewModel: ObservableObject {
     @ObservedObject var timerViewModel = TimerViewModel.shared
     
     var hasWonTheGame: Bool {
-        return cardsView.count > 0 && matchedCards.count == cardsView.count
+        return noOfCards > 0 && matchedCards.count == noOfCards
+    }
+    
+    var noOfCards: Int {
+        return cardsView.count
+    }
+    
+    var totalCountdown: Int {
+        return noOfCards * 3
     }
     
     private var cancellable: AnyCancellable?
@@ -58,15 +66,15 @@ class MatchingPairsViewModel: ObservableObject {
     
     func startGame() {
         initGame()
-        timerViewModel.startTimer()
+        timerViewModel.startTimer(countdown: totalCountdown)
     }
     
     func saveGameState(hasWon: Bool) {
-        gameState.score = score
         gameState.hasWon = hasWon
-        gameState.elapsedTimeSeconds = timerViewModel.getElapsedSeconds()
+        gameState.gridSize = noOfCards
+        gameState.elapsedTimeSeconds = totalCountdown - timerViewModel.secondsCountdown
 
-        StorageService.shared.saveGamePlayed(gameState)
+        StorageGameService.shared.saveGamePlayed(gameState)
     }
     
     func chooseCard(_ selectedCard: CardView) {

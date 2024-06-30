@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameRankingView: View {
     var body: some View {
-        let gamesPlayed = StorageService.shared.loadGamesPlayed()
+        let gamesPlayed = StorageGameService.shared.loadGamesPlayed()
         
         List {
             // Header row
@@ -18,25 +18,19 @@ struct GameRankingView: View {
                 Spacer()
                 Text("Score")
                 Spacer()
-                Text("Tries")
-                Spacer()
-                Text("Seconds")
-                Spacer()
                 Text("Date")
             }
             .font(.headline)
             .padding(.horizontal)
             
             // Ranking entries
-            ForEach(gamesPlayed) { entry in
+            ForEach(gamesPlayed.sorted(by: {
+                $0.score > $1.score
+            })) { entry in
                 HStack {
                     Text(entry.hasWon ? "✅" : "❌")
                     Spacer()
                     Text("\(entry.score)")
-                    Spacer()
-                    Text("\(entry.noOfTries)")
-                    Spacer()
-                    Text("\(entry.elapsedTimeSeconds)")
                     Spacer()
                     Text(entry.formattedDate)
                 }
