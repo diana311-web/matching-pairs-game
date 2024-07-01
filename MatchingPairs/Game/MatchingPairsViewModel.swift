@@ -73,7 +73,7 @@ class MatchingPairsViewModel: ObservableObject {
         gameState.hasWon = hasWon
         gameState.gridSize = noOfCards
         gameState.elapsedTimeSeconds = totalCountdown - timerViewModel.secondsCountdown
-
+        gameState.totalGameSeconds = totalCountdown
         StorageGameService.shared.saveGamePlayed(gameState)
     }
     

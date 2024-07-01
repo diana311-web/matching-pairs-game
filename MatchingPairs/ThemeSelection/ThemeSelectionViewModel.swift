@@ -4,10 +4,9 @@
 //
 //  Created by Elena Diana Morosanu on 28.06.2024.
 //
-
-import Foundation
 import Combine
 import MatchingCard
+import SwiftUI
 
 private struct Constants
 {
@@ -26,6 +25,7 @@ class ThemeSelectionViewModel: ObservableObject {
     @Published var errorState: ErrorMessage?
     @Published var state: ScreenState = .loading
     @Published var selectedTheme: ThemeModel?
+    private var networkMonitor = NetworkMonitor.shared
     private let urlString: String
     private var cancellables = Set<AnyCancellable>()
     
@@ -37,36 +37,12 @@ class ThemeSelectionViewModel: ObservableObject {
     
     init(urlString: String) {
         self.urlString = urlString
-        self.lastCacheUpdate = stringToDate(storageLastUpdate.load(String.self))
+        self.lastCacheUpdate = storageLastUpdate.load(String.self)?.toDate()
         self.cachedThemes = storageCachedThemes.loadArray(ThemeModel.self)
-    }
-    
-    
-    let formatDate = "yyyy-MM-dd HH:mm:ss"
-    func stringToDate(_ dateString: String?) -> Date? {
-        guard let dateString = dateString else {
-            return nil
-        }
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = formatDate
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        return dateFormatter.date(from: dateString)
-    }
-
-    func dateToString(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = formatDate
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        return dateFormatter.string(from: date)
     }
 
     func fetchData() {
-        // TODO: Daca nu are conexiune, reseteaza timer-ul
-
-        if let cachedThemes = cachedThemes, !cachedThemes.isEmpty, let lastCacheUpdate = lastCacheUpdate, lastCacheUpdate.timeIntervalSinceNow > -Constants.cacheNoOfSeconds {
+        if let cachedThemes = cachedThemes, !cachedThemes.isEmpty, let lastCacheUpdate = lastCacheUpdate, (!networkMonitor.isConnected || lastCacheUpdate.timeIntervalSinceNow > -Constants.cacheNoOfSeconds) {
             self.state = .loaded
             themes = cachedThemes
             print("Using cached themes, time remaining \(Int(lastCacheUpdate.timeIntervalSinceNow + Constants.cacheNoOfSeconds))")
@@ -109,7 +85,7 @@ class ThemeSelectionViewModel: ObservableObject {
     
     func saveCache() {
         if let lastCacheUpdate = lastCacheUpdate, let cachedThemes = cachedThemes, !cachedThemes.isEmpty {
-            storageLastUpdate.save(dateToString(lastCacheUpdate))
+            storageLastUpdate.save(lastCacheUpdate.toString())
             storageCachedThemes.saveArray(cachedThemes)
         }
     }

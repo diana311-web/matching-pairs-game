@@ -25,7 +25,13 @@ struct GameRankingView: View {
             
             // Ranking entries
             ForEach(gamesPlayed.sorted(by: {
-                $0.score > $1.score
+                if $0.hasWon != $1.hasWon {
+                    return $0.hasWon && !$1.hasWon
+                } else if $0.score != $1.score {
+                    return $0.score > $1.score
+                } else {
+                    return $0.startDateTime > $1.startDateTime
+                }
             })) { entry in
                 HStack {
                     Text(entry.hasWon ? "✅" : "❌")

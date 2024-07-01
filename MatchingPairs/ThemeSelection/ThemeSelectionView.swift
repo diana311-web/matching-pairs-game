@@ -7,9 +7,13 @@
 
 import SwiftUI
 
+public let EndpointURL = "https://firebasestorage.googleapis.com/v0/b/concentrationgame-20753.appspot.com/o/themes.json?alt=media&token=6898245a-0586-4fed-b30e-5078faeba078"
+
 struct ThemeSelectionView: View {
-    @StateObject private var viewModel = ThemeSelectionViewModel(urlString: "https://firebasestorage.googleapis.com/v0/b/concentrationgame-20753.appspot.com/o/themes.json?alt=media&token=6898245a-0586-4fed-b30e-5078faeba078")
+    @StateObject private var viewModel = ThemeSelectionViewModel(urlString: EndpointURL)
     @State private var navigateToDetail = false
+    
+    private let defaultTheme = ThemeModel(cardColor: CardColor(blue: 0.01, green: 0.549, red: 0.9686), cardSymbol: "⬛️", symbols: ["🎃", "👻", "👿", "💀"], title: "Halloween")
     
     var body: some View {
         VStack {
@@ -33,9 +37,9 @@ struct ThemeSelectionView: View {
                 .navigationTitle("Select a Theme")
                 .background(
                     NavigationLink(destination: MatchingPairsView(viewModel: MatchingPairsViewModel(themeModel: viewModel.selectedTheme ??
-                                                                                                    ThemeModel(cardColor: CardColor(blue: 0.01, green: 0.549, red: 0.9686), cardSymbol: "⬛️", symbols: ["🎃", "👻", "👿", "💀"], title: "Halloween"))), isActive: $navigateToDetail) {
-                                                                                                        EmptyView()
-                                                                                                    }
+                                                                                                    defaultTheme)), isActive: $navigateToDetail) {
+                            EmptyView()
+                        }
                         .hidden()
                 )
             }

@@ -15,7 +15,7 @@ struct GameState: Codable, Identifiable
     var gridSize = 0
     var noOfTries = 0
     var elapsedTimeSeconds = 0
-
+    var totalGameSeconds = 0
     
     var formattedDate: String {
         let formatter = DateFormatter()
@@ -31,10 +31,11 @@ struct GameState: Codable, Identifiable
         let timeWeight: Double = 0.6
         let movesWeight: Double = 0.4
 
-        let timeFactor = max(0, 1 - (timeWeight * Double(elapsedTimeSeconds) / 1000))
-        let movesFactor = max(0, 1 - (movesWeight * Double(noOfTries) / 100))
+        let totalGameSeconds = Double(self.totalGameSeconds)
+        let timeFactor = max(0, 1 - (timeWeight * Double(elapsedTimeSeconds) / totalGameSeconds))
+        let movesFactor = max(0, 1 - (movesWeight * Double(noOfTries) / (totalGameSeconds * 2)))
 
-        let score = Double(gridSize) * timeFactor * movesFactor
+        let score = Double(gridSize) * timeFactor * movesFactor + (hasWon ? 5 : 0)
         
         return max(0, Int(score.rounded()))
     }
